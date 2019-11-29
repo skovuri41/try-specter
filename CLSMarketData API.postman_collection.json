@@ -1,0 +1,647 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CLSMarketData API",
+		"_postman_id": "cfe43a88-e9ff-4502-f222-37d907b5b227",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"apikey\", jsonData.access_token);\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{url}}/general/getToken",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/plain"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "99f403cf-e182-4d86-958f-01f41685e475",
+					"name": "GetToken - Invalid Password",
+					"originalRequest": {
+						"url": "{{url}}/general/getToken",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "clsdirect.uat.fidelity+01@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Test123",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"status": "200",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "close",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Mar 2018 16:58:42 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubdomains",
+							"name": "Strict-Transport-Security",
+							"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000 ; includeSubDomains",
+							"name": "Strict-Transport-Security",
+							"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+						},
+						{
+							"key": "X-CDN",
+							"value": "Incapsula",
+							"name": "X-CDN",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-Iinfo",
+							"value": "10-25792770-25792785 NNNN CT(76 151 0) RT(1521910721726 91) q(0 0 2 -1) r(8 8) U6",
+							"name": "X-Iinfo",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "clsdirect-uat.com",
+							"path": "/",
+							"secure": false,
+							"value": "NSB1876ySuqVttLwhtjU3mhVsVoAAAAAQUIPAAAAAABx7r6umLRt0RqNr+LRfGXH",
+							"key": "visid_incap_1526888"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "clsdirect-uat.com",
+							"path": "/",
+							"secure": false,
+							"value": "2bhJeZclfUAZV2qQpcELDPaBtloAAAAAURxbbixJxV/cnlcjJhjy0A==",
+							"key": "incap_ses_868_1526888"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "www.clsdirect-uat.com",
+							"path": "/",
+							"secure": true,
+							"value": "3a223857-b16f-428f-bc11-b8d9ad4fc5bf",
+							"key": "XSRF-TOKEN"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": true,
+							"domain": "www.clsdirect-uat.com",
+							"path": "/",
+							"secure": true,
+							"value": "451FCE0BFEF07F2D82810F8AFDCA3D7E.jvm1",
+							"key": "JSESSIONID"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "www.clsdirect-uat.com",
+							"path": "/",
+							"secure": false,
+							"value": ".jvm1",
+							"key": "ROUTEID"
+						}
+					],
+					"body": "ERROR::invalid_grant"
+				},
+				{
+					"id": "7ffbd9e1-d0fe-4fc1-b3c9-913b7028a9c7",
+					"name": "GetToken - Invalid Usename",
+					"originalRequest": {
+						"url": "{{url}}/general/getToken",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "clsdirect.uat.fidelity+01@gmail.co",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Test123!",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"status": "500",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "close",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "241",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=ISO-8859-1",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Mar 2018 16:52:57 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubdomains",
+							"name": "Strict-Transport-Security",
+							"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000 ; includeSubDomains",
+							"name": "Strict-Transport-Security",
+							"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+						},
+						{
+							"key": "X-CDN",
+							"value": "Incapsula",
+							"name": "X-CDN",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-Iinfo",
+							"value": "13-42401266-42401280 NNNN CT(74 160 0) RT(1521910376239 88) q(0 0 2 -1) r(3 3) U6",
+							"name": "X-Iinfo",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "clsdirect-uat.com",
+							"path": "/",
+							"secure": false,
+							"value": "NSB1876ySuqVttLwhtjU3mhVsVoAAAAAQUIPAAAAAABx7r6umLRt0RqNr+LRfGXH",
+							"key": "visid_incap_1526888"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "clsdirect-uat.com",
+							"path": "/",
+							"secure": false,
+							"value": "2bhJeZclfUAZV2qQpcELDPaBtloAAAAAURxbbixJxV/cnlcjJhjy0A==",
+							"key": "incap_ses_868_1526888"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "www.clsdirect-uat.com",
+							"path": "/",
+							"secure": true,
+							"value": "3a223857-b16f-428f-bc11-b8d9ad4fc5bf",
+							"key": "XSRF-TOKEN"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": true,
+							"domain": "www.clsdirect-uat.com",
+							"path": "/",
+							"secure": true,
+							"value": "451FCE0BFEF07F2D82810F8AFDCA3D7E.jvm1",
+							"key": "JSESSIONID"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "www.clsdirect-uat.com",
+							"path": "/",
+							"secure": false,
+							"value": ".jvm1",
+							"key": "ROUTEID"
+						}
+					],
+					"body": "{\"displayMsg\":\"There is an unexpected server error. Please contact the help desk with the reference id listed below.\",\"referenceId\":\"65106e0d-0931-42dd-b3c3-81f0e2099634\",\"errorSource\":\"General\",\"message\":\"General Exception.\",\"code\":\"10000\"}"
+				},
+				{
+					"id": "f019282f-8050-490f-afed-b6e9dddd2499",
+					"name": "GetToken",
+					"originalRequest": {
+						"url": "{{url}}/general/getToken",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "clsdirect.uat.fidelity+01@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Test123!",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"status": "200",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "close",
+							"name": "Connection",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1042",
+							"name": "Content-Length",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Mar 2018 14:48:48 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=63072000; includeSubdomains",
+							"name": "Strict-Transport-Security",
+							"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000 ; includeSubDomains",
+							"name": "Strict-Transport-Security",
+							"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+						},
+						{
+							"key": "X-CDN",
+							"value": "Incapsula",
+							"name": "X-CDN",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-Iinfo",
+							"value": "14-47716955-47716972 NNNN CT(74 171 0) RT(1521902928075 85) q(0 0 3 -1) r(10 10) U6",
+							"name": "X-Iinfo",
+							"description": "Custom header"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "clsdirect-uat.com",
+							"path": "/",
+							"secure": false,
+							"value": "NSB1876ySuqVttLwhtjU3mhVsVoAAAAAQUIPAAAAAABx7r6umLRt0RqNr+LRfGXH",
+							"key": "visid_incap_1526888"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "clsdirect-uat.com",
+							"path": "/",
+							"secure": false,
+							"value": "Mb6YNPCLdBkCBVCQpcELDD5ktloAAAAAo4r5lobmGT2lDzUajN36MA==",
+							"key": "incap_ses_868_1526888"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "www.clsdirect-uat.com",
+							"path": "/",
+							"secure": true,
+							"value": "3a223857-b16f-428f-bc11-b8d9ad4fc5bf",
+							"key": "XSRF-TOKEN"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": true,
+							"domain": "www.clsdirect-uat.com",
+							"path": "/",
+							"secure": true,
+							"value": "E0597C1F0DB2AD85112854061D8DE16A.jvm1",
+							"key": "JSESSIONID"
+						},
+						{
+							"expires": "Invalid Date",
+							"httpOnly": false,
+							"domain": "www.clsdirect-uat.com",
+							"path": "/",
+							"secure": false,
+							"value": ".jvm1",
+							"key": "ROUTEID"
+						}
+					],
+					"body": "eyJraWQiOiJVZDlveWtVUjZGVG0zd0hOSW5UMEx4d2xZZ0c0NEhTOFdkX1hHNXV6RWVzIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnZQb1BGaG1EY29OaGJzTFlVZFh3czFPUktmVTM0RWJYSXFOVkZwLW5tR0UiLCJpc3MiOiJodHRwczovL2Nsc2RpcmVjdC10ZXN0Lm9rdGFwcmV2aWV3LmNvbS9vYXV0aDIvYXVzZDZ4emRpeWgwMXJ3elAwaDciLCJhdWQiOiJjbHMiLCJpYXQiOjE1MjE5MDI5MjksImV4cCI6MTUyMTkwNjUyOSwiY2lkIjoiMG9hZDZ3MHptY1E4N3l4eUQwaDciLCJ1aWQiOiIwMHVlZDQ2cWJiTllkSTBRczBoNyIsInNjcCI6WyJncm91cHMiLCJlbWFpbCIsInByb2ZpbGUiLCJvcGVuaWQiXSwic3ViIjoiY2xzZGlyZWN0LnVhdC5maWRlbGl0eSswMUBnbWFpbC5jb20iLCJsYXN0TmFtZSI6IkFwaSIsImZpcnN0TmFtZSI6IkNIT0giLCJsb2dpbiI6ImNsc2RpcmVjdC51YXQuZmlkZWxpdHkrMDFAZ21haWwuY29tIiwiZW1haWwiOiJjbHNkaXJlY3QudWF0LmZpZGVsaXR5QGdtYWlsLmNvbSJ9.QRez4cqbBGpXhLfTTQqW43jvxKm7G3b07SW0CNz81l1MwwA_WCJ78tRg_f8HMYwBm4zSllx7qWCGwxywvs6ZVJSD-EYggQjAwvWJI9IJppV5BR4_3ZU9-L5vtWD2DGy-JlxZN1ClusJlkIuN-f2EQDCNtFprZibbvQDe-pCy-HX2i24ZGXX0xsGbl0MU2NM7iPwBscJ0Rk1T9Hr0SPmBaO_BpxRE_OE0tBIJaiF-RlZJcNVFVTCG9jQ7Dl-RZUNToJDPTVZ1I7RNN4uTdFNq62ufaCVKZCjRV7Kxn7zymdzqlmeDqiFrl-SkvpFOyPdvvJAw14ChRsZFQnIqveEGdA"
+				}
+			]
+		},
+		{
+			"name": "GetDatasets",
+			"request": {
+				"url": "{{url}}/marketdata/v1/datasets",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetDataset",
+			"request": {
+				"url": "{{url}}/marketdata/v1/datasets/FXSPTVL01H:INDA",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetData",
+			"request": {
+				"url": {
+					"raw": "{{url}}/marketdata/v1/datasets/FXSPTVL01H:INDA/data?format=csv&startDate=2019-01-02&endDate=2019-01-02",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"marketdata",
+						"v1",
+						"datasets",
+						"FXSPTVL01H:INDA",
+						"data"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "csv"
+						},
+						{
+							"key": "startDate",
+							"value": "2019-01-02"
+						},
+						{
+							"key": "endDate",
+							"value": "2019-01-02"
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
